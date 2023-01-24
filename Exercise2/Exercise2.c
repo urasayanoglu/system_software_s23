@@ -1,11 +1,13 @@
 /*
-File:           question4.c
+File:           Exercise2.c
 Author:         Uras Ayanoglu 
 Description:    Tasks 3,4, and 5 for Exercise 2 of System Software course by Sanna Määttä.
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 int main(void){
 
@@ -52,7 +54,12 @@ int main(void){
     }
 
     double power = pow(number1, number2);
-    printf("The Number1 to the power Number2 equals --> %ld ** %ld = %.2f\n", number1, number2, power);      
+    printf("The Number1 to the power Number2 equals --> %ld ** %ld = %.2f\n", number1, number2, power);  
+
+    // 5a - Generate a random number between 0 - 100 and print the number
+
+    srand(time(NULL));
+    printf("\nGenerated number between 0 and 100 by the computer is %d", rand() % 101);
 
     return 0;
 }
