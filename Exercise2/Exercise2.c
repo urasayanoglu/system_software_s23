@@ -59,7 +59,16 @@ int main(void){
     // 5a - Generate a random number between 0 - 100 and print the number
 
     srand(time(NULL));
-    printf("\nGenerated number between 0 and 100 by the computer is %d", rand() % 101);
+    int generatedNumber = rand() % 101;
+    printf("\nGenerated number between 0 and 100 by the computer is %d\n", generatedNumber);
+
+    // 5b - Check if the number generated and print if it is odd or even.
+
+    if (generatedNumber % 2 != 0){
+        printf("Generated number %d is odd.\n", generatedNumber);
+    } else {
+        printf("Generated number %d is even.\n", generatedNumber);
+    }
 
     return 0;
 }
