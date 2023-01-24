@@ -62,12 +62,20 @@ int main(void){
     int generatedNumber = rand() % 101;
     printf("\nGenerated number between 0 and 100 by the computer is %d\n", generatedNumber);
 
-    // 5b - Check if the number generated and print if it is odd or even.
+    // 5b - Check the number generated and print if it is odd or even.
 
     if (generatedNumber % 2 != 0){
         printf("Generated number %d is odd.\n", generatedNumber);
     } else {
         printf("Generated number %d is even.\n", generatedNumber);
+    }
+    
+    // 5c - Check the generated number if it is divisible by 4 and 7. Print if it is divisible or not.
+
+    if (generatedNumber % 27 == 0){
+        printf("The number generated %d is divisible by 4 and 7\n", generatedNumber);
+    } else {
+        printf("The number generated %d is not divisible by 4 and 7\n", generatedNumber);
     }
 
     return 0;
