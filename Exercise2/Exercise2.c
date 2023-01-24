@@ -97,5 +97,23 @@ int main(void){
         printf("%d ", arrayIntegers[i]);
     }
 
+
+    // 6b - Check if the generated number is in the array and print if it is or not!.
+
+    // Count how many times the random number is in the array.
+    int randomIsInArray = 0;  
+                                              
+    for (int i = 0; i < 10; i++) {                                      
+        if (generatedNumber == arrayIntegers[i]) {                               
+            randomIsInArray++;
+        }
+    }
+    if (randomIsInArray == 0) {                                                 
+        printf("\n\nEarlier generated random number %d is not among the integer array.\n", generatedNumber);
+    }
+    else {
+        printf("\n\nEarlier generated random number %d is among the integer array.\n", generatedNumber);
+    }
+
     return 0;
 }
