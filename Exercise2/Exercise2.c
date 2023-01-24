@@ -77,6 +77,25 @@ int main(void){
     } else {
         printf("The number generated %d is not divisible by 4 and 7\n", generatedNumber);
     }
+    
+    // 6a - Make an array with 10 integers, print them from the beginning to end and vice versa.
+
+    int arrayIntegers[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    // Print the array from the beginning to the end.
+
+    printf("\nArray first to last:\n");
+    
+    for (int i = 0; i < 10; i++) {    
+        printf("%d ", arrayIntegers[i]);
+    }    
+    
+    // Print the array from the end to the beginning.
+   
+    printf("\n\nArray last to first:\n");
+    for (int i = 9; i > -1; i--) {                                     
+        printf("%d ", arrayIntegers[i]);
+    }
 
     return 0;
 }
