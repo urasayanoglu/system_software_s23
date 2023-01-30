@@ -110,8 +110,7 @@ int main(void){
     }
     if (randomIsInArray == 0) {                                                 
         printf("\n\nEarlier generated random number %d is not among the integer array.\n", generatedNumber);
-    }
-    else {
+    } else {
         printf("\n\nEarlier generated random number %d is among the integer array.\n", generatedNumber);
     }
 
