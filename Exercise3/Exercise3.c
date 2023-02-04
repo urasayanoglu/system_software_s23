@@ -5,6 +5,10 @@ Description:    Tasks 3,4, and 5 for Exercise 3 of System Software course by San
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+#include <limits.h>
 
 int main(void){
 
@@ -27,6 +31,27 @@ int main(void){
     }
 
     printf("\nSum of even numbers between 1 - 1000 is: %d", sumOfEvenNumbers);
+
+    //3c - Generate random int. between 2 and 20, multiply it with itself before integer overflow.
+    srand(time(NULL));
+    int upper = 20;
+    int lower = 2;
+    int generatedNumber = rand() % (upper - lower +1) + lower;
+    printf("\nGenerated number between 2 and 20 is: %d\n", generatedNumber);
+
+    int maxLimit = (int) sqrt((float)INT_MAX);        // Max integer value that the variable can hold
+
+    do {
+        printf("\nInteger is: %d and its product by itself: %d", generatedNumber, generatedNumber*generatedNumber);
+        generatedNumber *= generatedNumber;
+    }
+    while 
+        (generatedNumber <= maxLimit); // Checks if the product is under the maxLimit that the variable can hold.
+
+
+
+
+
 
     return 0;
 }
