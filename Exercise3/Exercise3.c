@@ -10,6 +10,9 @@ Description:    Tasks 3,4, and 5 for Exercise 3 of System Software course by San
 #include <time.h>
 #include <limits.h>
 
+// Function declarations:
+int isFibonacci(int number);
+
 int main(void){
     printf("Tasks 3a, 3b and 3c:\n");
     //3a - Count the sum of numbers 1-100
@@ -74,9 +77,45 @@ int main(void){
             printf(", %d", collatzNumber);
         }
     }
-    printf("\nLength of the collatz sequence is %d", counter);
+    printf("\nLength of the collatz sequence is %d\n", counter);
+    
+
+    //5 - Generate a Fibonacci series and check if the random number is in the series.
+    printf("\nTask 5 - Fibonacci Series:\n");
+    
+    srand(time(NULL));
+    int fibonacciNumber = rand() % 100000;
+    printf("The number generated for Fibonacci series is: %d\n", fibonacciNumber);
+    
+    if (isFibonacci(fibonacciNumber)){
+
+        printf("Number %d is in the Fibonacci series.\n", fibonacciNumber);
+
+    }else{
+
+        printf("Number %d is not in the Fibonacci series.\n", fibonacciNumber);
+    }
 
 
     return 0;
-
 }
+
+    int isFibonacci(int number){
+
+            int a = 0;
+            int b = 1;
+
+            while (a < number && b < number){
+
+                if (a < b){
+
+                    a = a + b;
+
+                }else{
+
+                    b = a + b;
+
+                }
+            }
+            
+            return (a == number || b == number);}
