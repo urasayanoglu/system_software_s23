@@ -70,7 +70,7 @@ int main(void){
     int collatz_lower = 1;
     int collatzNumber = rand() % (collatz_upper - collatz_lower + 1) + lower;
     // int collatzNumber = 0;              // test case
-    printf("\nThe number generated for collatz sequence is: %d\n", collatzNumber);
+    printf("\nThe number generated for Collatz sequence is: %d\n", collatzNumber);
     
     int counter = 1;
 
@@ -100,15 +100,14 @@ int main(void){
     printf("\nTask 5 - Fibonacci Series:\n");
     
     srand(time(NULL));
-    int fibonacciNumber = rand() % 100000;
+    // int fibonacciNumber = rand() % 100000;
+    int fibonacciNumber = 21;
     printf("The number generated for Fibonacci series is: %d\n", fibonacciNumber);
     
-    if (isFibonacci(fibonacciNumber)){
-
+    if (isFibonacci(fibonacciNumber)) {
         printf("Number %d is in the Fibonacci series.\n", fibonacciNumber);
-
-    }else{
-
+    }
+    else {
         printf("Number %d is not in the Fibonacci series.\n", fibonacciNumber);
     }
 
@@ -116,22 +115,24 @@ int main(void){
     return 0;
 }
 
-    int isFibonacci(int number){
+int isFibonacci(int number){
 
-            int a = 0;
-            int b = 1;
+    int a = 0;
+    int b = 1;
 
-            while (a < number && b < number){
-
-                if (a < b){
-
-                    a = a + b;
-
-                }else{
-
-                    b = a + b;
-
-                }
-            }
             
-            return (a == number || b == number);}
+    while (a < number && b < number){
+
+        if (a < b){
+
+            a = a + b;
+
+        }else{
+
+            b = a + b;
+
+        }
+    }
+            
+    return (a == number || b == number || number == 0);
+}
