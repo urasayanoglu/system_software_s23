@@ -93,15 +93,15 @@ int main(void){
         }
     }
     if (collatzNumber > 0) {
-    printf("\nLength of the collatz sequence is %d\n", counter);
+    printf("\nLength of the Collatz sequence is %d\n", counter);
     }
 
     //5 - Generate a Fibonacci series and check if the random number is in the series.
     printf("\nTask 5 - Fibonacci Series:\n");
     
     srand(time(NULL));
-    // int fibonacciNumber = rand() % 100000;
-    int fibonacciNumber = 21;
+    int fibonacciNumber = rand() % 100000;
+    // int fibonacciNumber = -1;            // test case
     printf("The number generated for Fibonacci series is: %d\n", fibonacciNumber);
     
     if (isFibonacci(fibonacciNumber)) {
@@ -127,7 +127,8 @@ int isFibonacci(int number){
 
             a = a + b;
 
-        }else{
+        }
+        else {
 
             b = a + b;
 
