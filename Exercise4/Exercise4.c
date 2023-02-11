@@ -19,11 +19,43 @@ int gradeCheck(int points);
 bool parseInteger(char *string, int *integer);
 bool isPrime(int integer);
 
-int main(){    
+int main(){
+
+    // Task 3a - Write a function that prints only the negative numbers of user input till given 0.
+    printf("Task 3a - Write a function that prints only the negative numbers of user input till given 0.\n");
+    int number = 0;
+    bool typeCorrect = true;
+    int negativeList[BUFFER_SIZE];
+    int index = 0;
+
+    while (true) {
+        do{
+            printf("Enter an integer: ");
+            char temp[BUFFER_SIZE];
+            fgets(temp, BUFFER_SIZE, stdin);
+            typeCorrect = parseInteger(temp, &number);
+            if (!typeCorrect){
+                printf("Must be an integer value!\n");
+            }
+
+        } while (!typeCorrect);{
+            if (number < 0){
+                negativeList[index] = number;
+                index++;
+            } else if (number == 0){
+                printf("Zero entered. Exiting the loop.\n");
+                break;
+            }
+        }
+    }
+    printf("\nNegative numbers entered:\n");
+    for (int i = 0; i < index; i++){
+        printf("%d ", negativeList[i]);
+    } 
 
     // Task 4a - Write a function that generates a random number between the ranges of the function parameters.
     
-    printf("Task 4a - Generate a random number between the ranges of the function parameters.\n");
+    printf("\n\nTask 4a - Generate a random number between the ranges of the function parameters.\n");
     
     int randomNumber = 0;    
     randomNumber = randNum(150, -300);
@@ -241,3 +273,4 @@ bool isPrime(int integer){
 
     return prime;
 }
+
