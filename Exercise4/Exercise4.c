@@ -18,6 +18,8 @@ int randNum(int x, int y);
 int gradeCheck(int points);
 bool parseInteger(char *string, int *integer);
 bool isPrime(int integer);
+int sumIntegers(int array[], int size);
+int sumByThree(int array[], int size);
 
 int main(){
 
@@ -26,7 +28,10 @@ int main(){
     int number = 0;
     bool typeCorrect = true;
     int negativeList[BUFFER_SIZE];
+    int positiveList[BUFFER_SIZE];
+    int combinedList[BUFFER_SIZE];
     int index = 0;
+    int position = 0;
 
     while (true) {
         do{
@@ -36,26 +41,53 @@ int main(){
             typeCorrect = parseInteger(temp, &number);
             if (!typeCorrect){
                 printf("Must be an integer value!\n");
-            }
+            } 
 
         } while (!typeCorrect);{
             if (number < 0){
                 negativeList[index] = number;
                 index++;
+            } else if (number > 0){
+                positiveList[index] = number;
+                index++;
             } else if (number == 0){
                 printf("Zero entered. Exiting the loop.\n");
                 break;
             }
+            
+            combinedList[position] = number;
+            position++;
         }
     }
     printf("\nNegative numbers entered:\n");
     for (int i = 0; i < index; i++){
-        printf("%d ", negativeList[i]);
+        if (negativeList[i] < 0){
+            printf("%d ", negativeList[i]);
+        }
     } 
+
+    // Task 3b - Write a function that gives the sum of the integers of the user input.
+    printf("\n\nTask 3b - Write a function that gives the sum of the integers of the user input.\n");
+    int arrayLength = 0;
+
+    arrayLength = sizeof(combinedList)/sizeof(combinedList[0]);
+    printf("\n%d\n", arrayLength);
+    for (int i = 0; i < arrayLength; i++){
+        printf("%d ", combinedList[i]);
+    } 
+
+    printf("The sum of the integers entered is: %d\n", sumIntegers(combinedList, arrayLength));
+
+    // Task 3c - Write a function that gives the sum of positive integers divisible by three.
+    printf("\nTask 3c - Write a function that gives the sum of positive integer divisible by three.");
+    int arrayPosLength = 0;
+    arrayPosLength = sizeof(positiveList)/sizeof(positiveList[0]);
+    printf("\nThe sum of the positive integers divisible by three is: %d\n", sumByThree(positiveList, arrayPosLength));
+
 
     // Task 4a - Write a function that generates a random number between the ranges of the function parameters.
     
-    printf("\n\nTask 4a - Generate a random number between the ranges of the function parameters.\n");
+    printf("\nTask 4a - Generate a random number between the ranges of the function parameters.\n");
     
     int randomNumber = 0;    
     randomNumber = randNum(150, -300);
@@ -274,3 +306,26 @@ bool isPrime(int integer){
     return prime;
 }
 
+int sumIntegers(int array[], int size){
+    
+    int sum = 0;
+
+    for (int i = 0; i < size; i++){
+        sum += array[i];
+    }
+
+    return sum;
+}
+
+int sumByThree(int array[], int size){
+    
+        int sum = 0;
+    
+        for (int i = 0; i < size; i++){
+            if (array[i] % 3 == 0){
+                sum += array[i];
+            }
+        }
+    
+        return sum;
+}
