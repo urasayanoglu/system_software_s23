@@ -83,7 +83,9 @@ int main(){
     int arrayPosLength = 0;
     arrayPosLength = sizeof(positiveList)/sizeof(positiveList[0]);
     printf("\nThe sum of the positive integers divisible by three is: %d\n", sumByThree(positiveList, arrayPosLength));
-
+    for (int i = 0; i < arrayPosLength; i++){
+        printf("%d ", positiveList[i]);
+    }
 
     // Task 4a - Write a function that generates a random number between the ranges of the function parameters.
     
