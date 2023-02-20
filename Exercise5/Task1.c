@@ -1,7 +1,8 @@
 /*
 File:           Task1.c
 Author:         Uras Ayanoglu
-Description:    Tasks 1: Till the count reaches the number prompted:
+Description:    Task1: Tribonacci Numbers
+                Till the count reaches the number prompted:
                 x <-- y; y <-- z, z <-- newVariable
                 newVariable will be the sum of x, y, and z.
 */
@@ -19,11 +20,12 @@ int main(){
 
     printf("Enter a number:\t");
     scanf("%d", &num);
-    printf("Initial values for \tx: %d\ty: %d\tz: %d", x, y, z);
-    printf("\nTill count %d reaches the number prompted", count);
-    printf("\nx will get y's; y will get z's; z will get new variable's value.");
+    printf("\nTribonacci Numbers - Initial values for variables: x = %d , y = %d , z = %d", x, y, z);
+    printf("\nTill count %d reaches the number prompted,", count);
+    printf(" x will get y's; y will get z's; z will get new variable's value.");
     printf("\nNew variable will be the sum of variables x, y, and z!\n");
-
+    
+    // Iteration starts at number count and continues till count is smaller than number prompted.
     while (count < num){
         newVariable = x + y + z;
         printf("\nx:%d, y:%d, z:%d and New variable is: %d",x, y, z, newVariable);
