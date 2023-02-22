@@ -18,6 +18,8 @@ int armstrongChecker(int x);                // Returns true if the argument is a
 void printArmstrong(int x);                 // Prints all the Armstrong numbers up to the argument
 void printArray(int array[], int length);   // Prints out the elements of an array.
 void randomArray(int array[], int length);  // Replaces array elements with random numbers.
+void sortArray(int array[], int length);    // Sorts an integer array in ascending order.
+
 int main(int argc, char *argv[]){
     
     // Task 3a - Give an integer between 0 - 10000000 as a command line argument and print proper warning if it is not so!
@@ -75,7 +77,11 @@ int main(int argc, char *argv[]){
     printf("Here is the array filled with random numbers: ");
     printArray(emptyArray, 10);
 
-    
+    // Task 4c - Write a function that takes the array from Task 4b and its length as arguments and then sort the array and print it.
+    printf("\n\nTask 4c - Write a function that takes the array from Task 4b and its length as arguments and then sort the array and print it.\n");
+    sortArray(emptyArray, 10);
+    printArray(emptyArray, 10);
+
 
     return 0;
 }
@@ -140,5 +146,20 @@ void randomArray(int array[], int length){
     srand(time(NULL));
     for (i = 0; i < length; i++){
         array[i] = rand() % 1000000;
+    }
+}
+
+void sortArray(int array[], int length){
+    int i = 0;
+    int j = 0;
+    int temp = 0;
+    for (i = 0; i < length; i++){
+        for (j = i + 1; j < length; j++){
+            if (array[i] > array[j]){
+                temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
     }
 }
