@@ -16,6 +16,7 @@ Description:    Tasks 3 and 4 for Exercise 5 of System Software course by Sanna 
 
 int armstrongChecker(int x);                // Returns true if the argument is an Armstrong number
 void printArmstrong(int x);                 // Prints all the Armstrong numbers up to the argument
+void printArray(int array[], int length);   // Prints out the elements of an array.
 
 int main(int argc, char *argv[]){
     
@@ -61,7 +62,11 @@ int main(int argc, char *argv[]){
     printf("Here are all the Armstrong numbers up to %d:\n", number);
     printArmstrong(number);
 
+    // Task 4a - Write a function that takes a (ready filled) array and its length as arguments and prints out the elements of the array
 
+    printf("\nTask 4a - Write a function that takes a (ready filled) array and its length as arguments and prints out the elements of the array\n");
+    int sampleArray[10] = {25, 12, 43, 34, 5, 11, 70, 38, 9, 42};
+    printArray(sampleArray, 10);
 
 
     return 0;
@@ -119,5 +124,10 @@ void printArmstrong(int x)
     printf("\n");
 }
 
-
+void printArray(int array[], int length){
+    int i = 0;
+    for (i = 0; i < length; i++){
+        printf("%d ", array[i]);
+    }
+}
 
