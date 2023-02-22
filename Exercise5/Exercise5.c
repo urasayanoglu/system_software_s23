@@ -17,7 +17,7 @@ Description:    Tasks 3 and 4 for Exercise 5 of System Software course by Sanna 
 int armstrongChecker(int x);                // Returns true if the argument is an Armstrong number
 void printArmstrong(int x);                 // Prints all the Armstrong numbers up to the argument
 void printArray(int array[], int length);   // Prints out the elements of an array.
-
+void randomArray(int array[], int length);  // Replaces array elements with random numbers.
 int main(int argc, char *argv[]){
     
     // Task 3a - Give an integer between 0 - 10000000 as a command line argument and print proper warning if it is not so!
@@ -68,6 +68,14 @@ int main(int argc, char *argv[]){
     int sampleArray[10] = {25, 12, 43, 34, 5, 11, 70, 38, 9, 42};
     printArray(sampleArray, 10);
 
+    // Task 4b - Write a function that takes an empty array and its length as arguments and fill the array with random generated numbers smaller than 1000000.
+    printf("\n\nTask 4b - Write a function that takes an empty array and its length as arguments and fill the array with random generated numbers smaller than 1000000.\n");
+    int emptyArray[10];
+    randomArray(emptyArray, 10);
+    printf("Here is the array filled with random numbers: ");
+    printArray(emptyArray, 10);
+
+    
 
     return 0;
 }
@@ -106,17 +114,13 @@ int armstrongChecker(int x){
     }
 }
 
-void printArmstrong(int x)
-{
+void printArmstrong(int x){
     int counter = 0;
-    while (counter <= x)
-    {
-        if (counter && armstrongChecker(counter))   
-        {
+    while (counter <= x){
+
+        if (counter && armstrongChecker(counter)){
             printf(", %d", counter);
-        }
-        else if (!counter && armstrongChecker(counter))
-        {
+        } else if (!counter && armstrongChecker(counter)){
             printf("%d", counter);
         }
     counter++;
@@ -131,3 +135,10 @@ void printArray(int array[], int length){
     }
 }
 
+void randomArray(int array[], int length){
+    int i = 0;
+    srand(time(NULL));
+    for (i = 0; i < length; i++){
+        array[i] = rand() % 1000000;
+    }
+}
