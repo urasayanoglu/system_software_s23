@@ -68,11 +68,13 @@ int main(int argc, char *argv[]){
 
     printf("\nTask 4a - Write a function that takes a (ready filled) array and its length as arguments and prints out the elements of the array\n");
     int sampleArray[10] = {25, 12, 43, 34, 5, 11, 70, 38, 9, 42};
+    // int sampleArray[10] = {}; // Test case 1 for 4a
+    // int sampleArray[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}; // Test case for 2 4a
     printArray(sampleArray, 10);
 
     // Task 4b - Write a function that takes an empty array and its length as arguments and fill the array with random generated numbers smaller than 1000000.
     printf("\n\nTask 4b - Write a function that takes an empty array and its length as arguments and fill the array with random generated numbers smaller than 1000000.\n");
-    int emptyArray[10];
+    int emptyArray[10]; // = {-23, -45, -100, -12, -1, -2, -3, -4, -5, -6}; // Test case for 4c
     randomArray(emptyArray, 10);
     printf("Here is the array filled with random numbers: ");
     printArray(emptyArray, 10);
