@@ -15,32 +15,21 @@ Desc      :   Exercise 7 Task 2 & 3
 
 int main() {
 	
-	// Memory allocation for the array
-	int *memoryPointer = NULL;
-	memoryPointer = (int*) malloc(ARRAY_SIZE * sizeof(int));
-	
-	// Check memory allocation, if no pointer is returned , mem alloc is unsuccessful.
-	if ( memoryPointer == NULL ) {
-		printf("Memory allocation is unsuccessful\n");
-		return 0;
-	} else {
-		printf("Memory allocation is successful.\n");
+    // Task 2: Sieve of Eratosthenes Algorithm - Find all the prime numbers up to a number asked from the user.
+    printf("Exercise7 Task 2: Sieve of Eratosthenes in order to find all prime numbers until a number asked from the user.\n");
+    int n = askNumber();
+        
+    int* is_prime = sieve(n); // get the array of prime flags
 
-	}
-	
-	
-	int integer = 0;
-	integer = askNumber();
-	
-	// Check can we run Primecheck
-	if ( fillArray(integer, memoryPointer) == true ) {
-		checkPrime(integer, memoryPointer );
-	}
-	
-	
-	// Free the memory 
-	free(memoryPointer);
+    printf("Prime numbers up to %d: ", n);
+    for (int i = 2; i <= n; i++) {
+        if (*(is_prime + i)) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
 
+    free(is_prime); // free the dynamically allocated memory
 
 	// Task 3: Find the greatest sum of five adjacent numbers in the same direction up, down, left, right, or diagonally in the 20×20 grid
 	printf("\nExercise 7 Task 3 - Find the greatest sum of five adjacent numbers in the same direction\n");

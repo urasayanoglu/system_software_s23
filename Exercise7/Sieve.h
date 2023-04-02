@@ -19,21 +19,13 @@ Desc      :   Header file for Sieve.c
 #include <math.h>
 #include <stdbool.h>
 
-// Determine the array size
-#define ARRAY_SIZE 100
-
-// Determine the smallest prime number
-#define SMALLEST_PRIME 2
-
 // Determine the string size limit 
 #define BUFFER_SIZE 4096
 
-// declare functions we wish to share for other files to use
+// Declare functions
+int* sieve(int n);
+bool parseInteger(char *string, int *integer);
 int askNumber();
-bool parseInteger();
-bool fillArray();
-void checkPrime();
-
 
 
 #endif 

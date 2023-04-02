@@ -107,70 +107,33 @@ int askNumber() {
 	
 }
 
+int* sieve(int n) {
+    int *is_prime = (int*) malloc(sizeof(int) * (n+1)); // create the array dynamically
+    if (is_prime == NULL) {
+        printf("Error: Memory allocation failed.");
+        exit(1);
+    } else {
+		printf("Memory allocation is successful.\n");
 
-// The function fills the array up to the number gotten by the prompt. 
-bool fillArray( int upToNumber, int *array) {
-
-	int filler = 2;
-	// Check  if we can fill the array e.g. if the given number is too big
-	if ( upToNumber > ARRAY_SIZE || upToNumber < SMALLEST_PRIME ) {
-		printf("The number given is in the wrong interval.\n");
-		return false;
-		
-	// Fill array after validation	
-	} else {
-		int counter = 0;
-
-		printf("Numbers listed below are in allocated memory space [%d pcs]\n", upToNumber-SMALLEST_PRIME+1 );
-		while ( filler <= upToNumber ) {
-			*( array + counter ) = filler;
-			printf("Number at [%d] is %d\n", counter, filler);
-			counter++;
-			filler++;
-		}
 	}
 
-	return true;
+    // Initialize the array to 1 (true) for all elements
+    for (int i = 0; i <= n; i++) {
+        *(is_prime + i) = 1;
+    }
+
+    // Set 0 and 1 to not prime
+    *(is_prime + 0) = 0;
+    *(is_prime + 1) = 0;
+
+    // Mark all multiples of numbers up to sqrt(n)
+    for (int i = 2; i * i <= n; i++) {
+        if (*(is_prime + i)) {
+            for (int j = i * i; j <= n; j += i) {
+                *(is_prime + j) = 0;
+            }
+        }
+    }
+
+    return is_prime;
 }
-
-// Function to check for primes
-void checkPrime( int upToNumber, int *array ) {
-	
-	printf("\nPrime numbers between %d and %d: ",SMALLEST_PRIME, upToNumber );
-	// Loop through whole array
-	for ( int index = 0; index < upToNumber-1; index++) {
-		
-		bool prime = true;
-		// Check for each value separetly if it is prime or not
-		for ( int index2 = 2; index2 <= ( *(array+index)/2 ); index2++) {
-			
-			// Check if number is prime or not
-			if ( *(array+index) % index2 == 0 ) {
-				prime = false;
-			}
-		}
-		if ( upToNumber == SMALLEST_PRIME ) {
-			printf("%d", SMALLEST_PRIME );
-		}
-		// Print number if it is prime
-		else if ( prime == true ) {
-			printf("%d ", *(array+index));
-		}		
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
