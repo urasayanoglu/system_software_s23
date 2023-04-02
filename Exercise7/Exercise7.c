@@ -5,12 +5,13 @@ Compile   :   gcc -Wall -Wextra -std=c18 Exercise7.c -o Exercise7
 Version   :   1.0
 Author(s) :   Uras Ayanoglu, Jan-Krister Helenius
 Contact   :   uras.ayanoglu@edu.turkuamk.fi, jan-krister.helenius@edu.turkuamk.fi
-Desc      :   None
+Desc      :   Exercise 7 Task 2 & 3
 */
 
 #include <stdio.h>
 
 #include "Sieve.h"
+#include "Matrix.h"
 
 int main() {
 	
@@ -39,6 +40,12 @@ int main() {
 	
 	// Free the memory 
 	free(memoryPointer);
+
+
+	// Task 3: Find the greatest sum of five adjacent numbers in the same direction up, down, left, right, or diagonally in the 20×20 grid
+	printf("\nExercise 7 Task 3 - Find the greatest sum of five adjacent numbers in the same direction\n");
+    testMatrix();
+
 	
     return 0;
 }
