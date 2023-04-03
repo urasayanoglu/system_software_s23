@@ -11,13 +11,25 @@ Desc      :   Header file for Matrix.c
 #ifndef MATRIX_H
 #define MATRIX_H
 
+// Include built-in Libraries
+#include <stdio.h>
+
 // Determine the size of the array
 #define SIZE 20
 
-// Declare functions we wish to share for other files to use
-void testMatrix();
-int greatestSum();
+// 5 elements for sum
+#define ADJACENCY 5
 
+// 15 times to select 5 consecutives for sum
+#define LIMIT 16
+#define LO 3
+
+// Declare functions we wish to share for other files to use
+void result();
+int horizontalSum();
+int verticalSum();
+int diagonalSum();
+void testMatrix();
 
 #endif 
 
